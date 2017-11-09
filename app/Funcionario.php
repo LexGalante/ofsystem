@@ -4,20 +4,26 @@ namespace OfSystem;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Cliente extends Model
+
+class Funcionario extends Model
 {
     //CONSTANTES
     CONST CLIENTE_ATIVO = 'A';
     CONST CLIENTE_INATIVO = 'I';
+    CONST CARGO_MECANICO = 'M';
+    CONST CARGO_ATENDENTE = 'A';
+    CONST CARGO_GERENTE = 'G';
+    CONST CARGO_FUNILEIRO = 'F';
+    CONST CARGO_OUTROS = 'O';
     //Atributos para criação em massa
     public $fillable = ['tipo', 'nome', 'sobrenome', 'cprf', 'logradouro', 'numero', 'bairro', 'cidade', 'cep', 'uf', 'situacao'];
     //Relacionamentos
     public function contatos()
     {
-        return $this->belongsToMany(ClienteContato::class);
+        return $this->belongsToMany(FuncionarioContato::class);
     }
     //Crud dos relacionamentos
-    public function addContato(ClienteContato $contato)
+    public function addContato(FuncionarioContato $contato)
     {
         $this->contatos()->save($contato);
     }

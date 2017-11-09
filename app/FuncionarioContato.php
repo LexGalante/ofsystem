@@ -4,7 +4,7 @@ namespace OfSystem;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ClienteContato extends Model
+class FuncionarioContato extends Model
 {
     //Constantes
     CONST TELEFONE = 'T';
@@ -14,8 +14,8 @@ class ClienteContato extends Model
     //Atributos para criação em massa
     public $fillable = ['tipo', 'contato'];
     //Relacionamentos
-    public function cliente()
+    public function funcionario()
     {
-        return $this->belongsTo(Cliente::class);
+        return $this->belongsTo(Funcionario::class);
     }
 }

@@ -2,10 +2,10 @@
 
 namespace OfSystem\Http\Controllers;
 
-use OfSystem\Cliente;
+use OfSystem\Clientes;
 use Illuminate\Http\Request;
 
-class ClienteController extends Controller
+class ClientesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class ClienteController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \OfSystem\Cliente  $cliente
+     * @param  \OfSystem\Clientes  $clientes
      * @return \Illuminate\Http\Response
      */
-    public function show(Cliente $cliente)
+    public function show(Clientes $clientes)
     {
         //
     }
@@ -52,10 +52,10 @@ class ClienteController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \OfSystem\Cliente  $cliente
+     * @param  \OfSystem\Clientes  $clientes
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cliente $cliente)
+    public function edit(Clientes $clientes)
     {
         //
     }
@@ -64,10 +64,10 @@ class ClienteController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \OfSystem\Cliente  $cliente
+     * @param  \OfSystem\Clientes  $clientes
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cliente $cliente)
+    public function update(Request $request, Clientes $clientes)
     {
         //
     }
@@ -75,10 +75,10 @@ class ClienteController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \OfSystem\Cliente  $cliente
+     * @param  \OfSystem\Clientes  $clientes
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cliente $cliente)
+    public function destroy(Clientes $clientes)
     {
         //
     }

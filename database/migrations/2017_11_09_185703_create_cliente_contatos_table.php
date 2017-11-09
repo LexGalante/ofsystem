@@ -16,10 +16,13 @@ class CreateClienteContatosTable extends Migration
         Schema::create('cliente_contatos', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('cliente_id')->unsigned();
-            $table->foreign('cliente_id')->references('id')->on('clientes');
-            $table->integer('contato_id')->unsigned();
-            $table->foreign('contato_id')->references('id')->on('contatos');
+            $table->enum('tipo', ['E', 'T', 'C', 'S']);
+            $table->string('contato', 250);
             $table->timestamps();
+        });
+        
+        Schema::table('cliente_contatos', function(Blueprint $table){
+            $table->foreign('cliente_id')->references('id')->on('clientes')->onDelete('cascade');
         });
     }
 
@@ -30,6 +33,10 @@ class CreateClienteContatosTable extends Migration
      */
     public function down()
     {
+        Schema::table('cliente_contatos', function(Blueprint $table){
+            $table->dropForeign(['cliente_id']);
+        });
+        
         Schema::dropIfExists('cliente_contatos');
     }
 }

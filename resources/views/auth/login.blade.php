@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>OfSystem</title>
+        <title>Of System</title>
         <!-- Bootstrap Core CSS -->
         <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
         <!-- Bootstrap Core CSS RTL-->
@@ -55,7 +55,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-63">
-                                            <a class="btn btn-link" href="{{ route('password.request') }}">
+                                            <a class="btn btn-primary" href="{{ route('password.request') }}">
                                                 Esqueceu a Senha?
                                             </a>
                                         </div>

@@ -11,11 +11,12 @@
 |
 */
 
-Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/teste', function () {
     return view('layouts.dash');
 });
 
 Auth::routes();
+//DashBoard
+Route::get('/', 'HomeController@index')->name('home');
 

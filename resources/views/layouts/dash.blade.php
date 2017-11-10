@@ -153,7 +153,7 @@
                 <!-- /.navbar-collapse -->
             </nav>
     
-            <div id="page-wrapper">
+            <div>
                 <div class="container-fluid">
     				@yield('content')
                 </div>

@@ -3,6 +3,7 @@
 namespace OfSystem\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use OfSystem\Http\Middleware\RoleMiddleware;
 
 class Kernel extends HttpKernel
 {
@@ -57,5 +58,6 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \OfSystem\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'role' => RoleMiddleware::class
     ];
 }

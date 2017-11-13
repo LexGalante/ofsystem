@@ -2,8 +2,10 @@
 
 namespace OfSystem\Providers;
 
-use Illuminate\Support\Facades\Gate;
+
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use OfSystem\Cliente;
+use OfSystem\Policies\ClientePolicy;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -14,6 +16,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         'OfSystem\Model' => 'OfSystem\Policies\ModelPolicy',
+        Cliente::class => ClientePolicy::class,
     ];
 
     /**
@@ -25,6 +28,5 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
     }
 }

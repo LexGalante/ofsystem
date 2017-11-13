@@ -4,8 +4,9 @@ namespace OfSystem\Http\Controllers;
 
 use OfSystem\Clientes;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class ClientesController extends Controller
+class ClienteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,7 @@ class ClientesController extends Controller
      */
     public function index()
     {
-        //
+        return view('cliente.index');
     }
 
     /**

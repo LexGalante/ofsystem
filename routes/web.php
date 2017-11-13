@@ -23,12 +23,14 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::prefix('user')->group(function (){
+    Route::get('/logout', 'UsersController@logout')->name('user.logout');
     Route::get('/update', 'UsersController@update')->name('user.update');
 });
 
 Route::prefix('cliente')->group(function (){
     Route::get('/', 'ClienteController@index')->name('cliente.index')->middleware("role:index,OfSystem\Cliente");
     Route::get('/store', 'ClienteController@store')->name('cliente.store');
+    Route::get('/show/{id}', 'ClienteController@show')->name('cliente.show');
     Route::get('/update/{id}', 'ClienteController@update')->name('cliente.update');
     Route::get('/destroy/{id}', 'ClienteController@destroy')->name('cliente.destroy');
 });

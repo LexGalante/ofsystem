@@ -5,6 +5,7 @@ namespace OfSystem\Http\Controllers;
 use OfSystem\Clientes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use OfSystem\Cliente;
 
 class ClienteController extends Controller
 {
@@ -15,7 +16,8 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        return view('cliente.index');
+        $clientes = Cliente::paginate(15);
+        return view('cliente.index', compact('clientes'));
     }
 
     /**

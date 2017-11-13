@@ -47,6 +47,7 @@ class RoleMiddleware
             return $next($request);
         }
         else{#Se não tiver redireciona a home
+            \Session::flash('alert', ['class' => 'danger', 'message' => 'Voçê não possui acesso a esta funcionalidade']);
             return redirect()->route('home');
         }
     }    

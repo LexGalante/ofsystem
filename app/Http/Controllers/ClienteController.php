@@ -2,86 +2,72 @@
 
 namespace OfSystem\Http\Controllers;
 
-use OfSystem\Clientes;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use OfSystem\Cliente;
+use Illuminate\Http\Request;
+use OfSystem\Http\Requests\ClienteRequest;
+use OfSystem\Util\Util;
 
 class ClienteController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $clientes = Cliente::paginate(15);
         return view('cliente.index', compact('clientes'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    
+    public function show($id)
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(ClienteRequest $request)
     {
-        //
+        if($request->method() == Request::METHOD_GET){
+            return view('cliente.create');
+        }
+        else{
+            try{
+                $cliente = Cliente::create($request->all());
+                if($cliente){
+                    \Session::flash('alert', ['class' => 'success', 'message' => 'Cliente salvo com sucesso!']);
+                }
+                else{
+                    \Session::flash('alert', ['class' => 'danger', 'message' => 'Não foi possivel salvar cliente']);
+                }
+            }
+            catch(\Exception $e){
+                \Session::flash('alert', ['class' => 'danger', 'message' => "Erro desconhecido ({$e->getMessage()})"]);
+            }
+            
+            return redirect()->route('cliente.index');
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \OfSystem\Clientes  $clientes
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Clientes $clientes)
-    {
-        //
+    public function update(ClienteRequest $request, $id)
+    {        
+        $cliente = Cliente::find($id);
+        if($request->method() == Request::METHOD_GET){
+            return view('cliente.update', compact('cliente'));
+        }
+        else{
+            try{
+                $cliente->fill($request->all());
+                if($cliente){
+                    \Session::flash('alert', ['class' => 'success', 'message' => 'Cliente alterado com sucesso!']);
+                }
+                else{
+                    \Session::flash('alert', ['class' => 'danger', 'message' => 'Não foi possivel alterar o cliente']);
+                }
+            }
+            catch(\Exception $e){
+                \Session::flash('alert', ['class' => 'danger', 'message' => "Erro desconhecido ({$e->getMessage()})"]);
+            }
+            
+            return redirect()->route('cliente.index');
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \OfSystem\Clientes  $clientes
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Clientes $clientes)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \OfSystem\Clientes  $clientes
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Clientes $clientes)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \OfSystem\Clientes  $clientes
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Clientes $clientes)
+    public function delete(Cliente $cliente)
     {
         //
     }

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>SB Admin - Start Bootstrap Template</title>
+        <title>Of System</title>
         <!-- Bootstrap core CSS-->
         <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
         <!-- Custom fonts for this template-->
@@ -59,6 +59,14 @@
                           		</ul>
                         	</li>
                         	<li>
+                          		<a class="nav-link-collapse collapsed" data-toggle="collapse" href="#nav-link-veiculos">Veículos</a>
+                          		<ul class="sidenav-third-level collapse" id="nav-link-veiculos">
+                            		<li><a href="{{ route('veiculo.index') }}"><i class="fa fa-car"></i> Veículos</a></li>
+                            		<li><a href="{{ route('marca.index') }}"><i class="fa fa-registered"></i> Marcas</a></li>
+                            		<li><a href="{{ route('cor.index') }}"><i class="fa fa-paint-brush"></i> Cores</a></li>
+                          		</ul>
+                        	</li>
+                        	<li>
                           		<a class="nav-link-collapse collapsed" data-toggle="collapse" href="#nav-link-funcionarios">Funcionários</a>
                           		<ul class="sidenav-third-level collapse" id="nav-link-funcionarios">
                             		<li><a href="#"><i class="fa fa-plus"></i> Novo</a></li>
@@ -103,6 +111,19 @@
       	</nav>
       	<div class="content-wrapper">
       		<div class="container-fluid">
+      		<!-- PRINCIPAIS -->
+            <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
+            <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+            <!-- PLUGINS -->
+            <script src="{{ asset('plugins/jquery-easing/jquery.easing.min.js') }}"></script>
+            <script src="{{ asset('plugins/jquery-mask/jquery.mask.js') }}"></script>
+            <script src="{{ asset('plugins/data-tables/js/jquery-data-tables.js') }}"></script>
+            <script src="{{ asset('plugins/data-tables/js/data-tables.js') }}"></script>
+            <!-- TEMPLATE -->
+            <script src="{{ asset('js/sb-admin.min.js') }}"></script>
+            <script src="{{ asset('js/sb-admin-datatables.min.js') }}"></script>
+            <!-- APLICACAO -->
+            <script src="{{ asset('js/main.js') }}"></script>
           		@if (Session::has('alert'))
                 	<div class="alert alert-{{ Session::get('alert')['class'] }} alert-dismissible fade show" role="alert">
                 		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>    
@@ -119,7 +140,7 @@
             <!-- Scroll to Top Button-->
             <a class="scroll-to-top rounded" href="#page-top"><i class="fa fa-angle-up"></i></a>
             <!-- Logout Modal-->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
             	<div class="modal-dialog" role="document">
                 	<div class="modal-content">
                   		<div class="modal-header">
@@ -134,20 +155,6 @@
              	</div>
             </div>
       	</div>
-        <!-- Bootstrap core JavaScript-->
-        <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
-        <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
-        <!-- Core plugin JavaScript-->
-        <script src="{{ asset('plugins/jquery-easing/jquery.easing.min.js') }}"></script>
-        <!-- Page level plugin JavaScript-->
-        <script src="{{ asset('plugins/data-tables/js/jquery-data-tables.js') }}"></script>
-        <script src="{{ asset('plugins/data-tables/js/data-tables.js') }}"></script>
-        <!-- Custom scripts for all pages-->
-        <script src="{{ asset('js/sb-admin.min.js') }}"></script>
-        <!-- Custom scripts for this page-->
-        <script src="{{ asset('js/sb-admin-datatables.min.js') }}"></script>
-        <script src="{{ asset('js/sb-admin-charts.min.js') }}"></script>
-        <script src="{{ asset('js/main.js') }}"></script>
     </body>
 </html>
 

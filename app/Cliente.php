@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Cliente extends Model
 {
     //CONSTANTES
-    CONST CLIENTE_ATIVO = 'A';
-    CONST CLIENTE_INATIVO = 'I';
+    CONST ATIVO = 'A';
+    CONST INATIVO = 'I';
     CONST TIPO_FISICA = 'F';
     CONST TIPO_JURIDICA = 'J';
     CONST GENERO_MASCULINO = 'M';

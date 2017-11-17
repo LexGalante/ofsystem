@@ -24,6 +24,7 @@ Route::prefix('user')->group(function (){
 
 Route::prefix('ajax')->group(function (){
     Route::get('/endereco/{cep}', 'AjaxController@endereco')->name('ajax.endereco');
+    Route::get('/clientes/{q}', 'AjaxController@clientes')->name('ajax.clientes');
 });
 
 Route::prefix('cliente')->group(function (){

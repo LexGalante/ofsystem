@@ -16,7 +16,7 @@
             	<tr class="bg-info">
             		<th colspan="6">
             			<a href="{{ route('cliente.store') }}" class="btn btn-success" data-toggle="tooltip" title="Novo"><i class="fa fa-plus"></i> Novo</a>
-						<a href="{{ route('cliente.store') }}" class="btn btn-danger pull-right" data-toggle="tooltip" title="Relatório de Clientes"><i class="fa fa-file-pdf-o"></i> Relatório</a>
+						<a href="{{ route('cliente.report') }}" class="btn btn-danger pull-right" data-toggle="tooltip" title="Relatório de Clientes"><i class="fa fa-file-pdf-o"></i> Relatório</a>
             		</th>
             	</tr>            
                 <tr class="bg-info">
@@ -24,7 +24,7 @@
                     <th width="25%" class="text-center text-white">Sobrenome</th>
                     <th width="5%" class="text-center text-white">Tipo</th>
                     <th class="text-center text-white">Endereço</th>
-                    <th width="10%" class="text-center text-white">Situação</th>
+                    <th width="5%" class="text-center text-white">Sit</th>
                     <th width="15%" class="text-center text-white">Ações</th>
                 </tr>
             </thead>	
@@ -45,9 +45,9 @@
                     	</td>
                     	<td align="center">
                     		@if($cliente->tipo == OfSystem\Cliente::CLIENTE_ATIVO)
-                    			<span class="badge badge-success">ATIVO</span>
+                    			<span class="badge badge-success"><i class="fa fa-thumbs-o-up"></i></span>
                     		@else
-                    			<span class="badge badge-danger">INATIVO</span>	
+                    			<span class="badge badge-danger"><i class="fa fa-thumbs-o-down"></i></span>	
                     		@endif		
                     	</td>
                     	<td align="center">
@@ -59,13 +59,13 @@
                     	</td>
                     </tr>
                 @empty
-                <tr><td colspan="6"><h4 class="text-danger text-center">Sem Registros</h4></td></tr>                		    
+                	<tr><td colspan="6"><h4 class="text-danger text-center">Sem Registros</h4></td></tr>                		    
             	@endforelse        
             </tbody>
             <tfoot>
                 <tr>
                 	<th colspan="6">
-                		{{ $clientes->links() }}
+                		{{ $clientes->links('vendor.pagination.bootstrap-4') }}
                 	</th>
                 </tr>
             </tfoot>

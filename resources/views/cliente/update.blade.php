@@ -11,7 +11,7 @@
 	<!-- FORM -->
 	<form method="post" action="{{ route('cliente.update', ['id' => $cliente->id]) }}">
 		{{ csrf_field() }}
-		<input type="hidden" name="_method" value="put" />
+		<input type="hidden" name="_method" value="put"/>
     	<div class="card-header">
     		<i class="fa fa-plus"></i> Alterar Cliente {{ $cliente->nome }}
     	</div>

@@ -13,6 +13,8 @@
         <link href="{{ asset('fonts/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
         <!-- Page level plugin CSS-->
         <link href="{{ asset('plugins/data-tables/css/data-tables.css') }}" rel="stylesheet">
+        <link href="{{ asset('plugins/toastr/toastr.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('plugins/jquery-confirm/jquery-confirm.min.css') }}" rel="stylesheet">
         <!-- Custom styles for this template-->
         <link href="{{ asset('css/sb-admin.css') }}" rel="stylesheet">
         <!-- CSS da Aplicação -->
@@ -119,6 +121,9 @@
             <script src="{{ asset('plugins/jquery-mask/jquery.mask.js') }}"></script>
             <script src="{{ asset('plugins/data-tables/js/jquery-data-tables.js') }}"></script>
             <script src="{{ asset('plugins/data-tables/js/data-tables.js') }}"></script>
+            <script src="{{ asset('plugins/toastr/toastr.min.js') }}"></script>
+            <script src="{{ asset('plugins/jquery-confirm/jquery-confirm.min.js') }}"></script>
+            <script src="{{ asset('plugins/typeahead/typeahead.js') }}"></script>
             <!-- TEMPLATE -->
             <script src="{{ asset('js/sb-admin.min.js') }}"></script>
             <script src="{{ asset('js/sb-admin-datatables.min.js') }}"></script>
@@ -130,6 +135,15 @@
                 		<strong>{{ Session::get('alert')['message'] }}</strong>    
                 	</div>
             	@endif
+            	@if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
           		@yield('content')
           	</div>	
             <footer class="sticky-footer">

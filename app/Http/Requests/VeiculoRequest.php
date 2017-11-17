@@ -3,10 +3,10 @@
 namespace OfSystem\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use OfSystem\Cliente;
 use OfSystem\Util\Util;
+use OfSystem\Veiculo;
 
-class ClienteRequest extends FormRequest
+class VeiculoRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -16,9 +16,9 @@ class ClienteRequest extends FormRequest
     public function authorize()
     {
         if($this->method == self::METHOD_POST){
-            return $this->user()->can('cliente.store', Cliente::class);                        
+            return $this->user()->can('veiculo.store', Veiculo::class);
         }else if($this->method == self::METHOD_PUT){
-            return $this->user()->can('cliente.update', Cliente::class);
+            return $this->user()->can('veiculo.update', Veiculo::class);
         }
         else{
             return true;
@@ -34,12 +34,12 @@ class ClienteRequest extends FormRequest
     {
         switch($this->method){
             case self::METHOD_POST:
-                return Cliente::rules();
+                return Veiculo::rules();
                 break;
             case self::METHOD_PUT:
-                return Cliente::rules();
+                return Veiculo::rules();
                 break;
-            default: return [];            
+            default: return [];
         }
     }
     

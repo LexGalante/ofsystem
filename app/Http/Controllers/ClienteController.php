@@ -52,6 +52,7 @@ class ClienteController extends Controller
         else{
             try{
                 $cliente->fill($request->all());
+                $cliente->update();
                 if($cliente){
                     \Session::flash('alert', ['class' => 'success', 'message' => 'Cliente alterado com sucesso!']);
                 }

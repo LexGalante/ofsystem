@@ -12,7 +12,7 @@ class VeiculoPolicy
 
     public function index(User $user)
     {
-        $permission = DB::table('user_roles')->where('role_name', 'veiculo.index')->first();  
+        $permission = DB::table('user_roles')->where('role_name', 'veiculo.index')->orWhere('role_name', 'admin.all')->first();  
         if(empty($permission)){
             return false;
         }
@@ -23,7 +23,7 @@ class VeiculoPolicy
     
     public function show(User $user)
     {
-        $permission = DB::table('user_roles')->where('role_name', 'veiculo.show')->first();
+        $permission = DB::table('user_roles')->where('role_name', 'veiculo.show')->orWhere('role_name', 'admin.all')->first();
         if(empty($permission)){
             return false;
         }
@@ -34,7 +34,7 @@ class VeiculoPolicy
 
     public function store(User $user)
     {
-        $permission = DB::table('user_roles')->where('role_name', 'veiculo.store')->first();
+        $permission = DB::table('user_roles')->where('role_name', 'veiculo.store')->orWhere('role_name', 'admin.all')->first();
         if(empty($permission)){
             return false;
         }
@@ -43,9 +43,9 @@ class VeiculoPolicy
         }
     }
 
-    public function update(User $user, Cliente $cliente)
+    public function update(User $user)
     {
-        $permission = DB::table('user_roles')->where('role_name', 'veiculo.update')->first();
+        $permission = DB::table('user_roles')->where('role_name', 'veiculo.update')->orWhere('role_name', 'admin.all')->first();
         if(empty($permission)){
             return false;
         }
@@ -54,9 +54,9 @@ class VeiculoPolicy
         }
     }
 
-    public function delete(User $user, Cliente $cliente)
+    public function delete(User $user)
     {
-        $permission = DB::table('user_roles')->where('role_name', 'veiculo.delete')->first();
+        $permission = DB::table('user_roles')->where('role_name', 'veiculo.delete')->orWhere('role_name', 'admin.all')->first();
         if(empty($permission)){
             return false;
         }

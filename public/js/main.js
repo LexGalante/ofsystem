@@ -39,6 +39,9 @@ $(document).ready(function(){
 		placeholder: "__.___.___/___-__",
 		selectOnFocus: true
 	});
+	$('.placa').mask('aaa-9999', {
+		placeholder: "___-____",
+	});
 	$('.money').mask('000.000.000.000.000,00', {
 		reverse: true
 	});
@@ -66,7 +69,53 @@ $(document).ready(function(){
 	  }
 	});
 	$('.selectonfocus').mask("00/00/0000", {selectOnFocus: true});
-	
+	//JCONFIRM & TOASTR
+    $(function(){
+    	jconfirm.defaults = {
+	        title: 'Olá',
+	        content: 'Deseja confirmar a operação?',
+	        contentLoaded: function(){},
+	        icon: '',
+	        confirmButton: '<i class="fa fa-check"></i>',
+	        cancelButton: '<i class="fa fa-ban"></i>',
+	        confirmButtonClass: 'btn-success',
+	        cancelButtonClass: 'btn-danger pull-right',
+	        theme: 'white',
+	        animation: 'scale',
+	        animationSpeed: 400,
+	        animationBounce: 1.5,
+	        keyboardEnabled: false,
+	        container: 'body',
+	        containerFluid: false,
+	        confirm: function () {},
+	        cancel: function () {},
+	        backgroundDismiss: true,
+	        autoClose: false,
+	        closeIcon: null,
+	        columnClass: 'col-md-6 col-md-offset-3',
+	        onOpen: function(){},
+	        onClose: function(){},
+	        onAction: function(){}
+	    };
+    	
+    	toastr.options = {
+		  closeButton: false,
+		  debug: false,
+		  newestOnTop: false,
+		  progressBar: false,
+		  positionClass: "toast-top-right",
+		  preventDuplicates: true,
+		  onclick: null,
+		  showDuration: 300,
+		  hideDuration: 1000,
+		  timeOut: 3500,
+		  extendedTimeOut: "1000",
+		  showEasing: "swing",
+		  hideEasing: "linear",
+		  showMethod: "fadeIn",
+		  hideMethod: "fadeOut"
+		}
+    });
 	/**
 	 * FIM - CONFIGURAÇÕES DE PLUGINS
 	 */

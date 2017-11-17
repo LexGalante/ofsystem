@@ -12,7 +12,7 @@ class MarcaPolicy
     
     public function index(User $user)
     {
-        $permission = DB::table('user_roles')->where('role_name', 'marca.index')->first();
+        $permission = DB::table('user_roles')->where('role_name', 'marca.index')->orWhere('role_name', 'admin.all')->first();
         if(empty($permission)){
             return false;
         }
@@ -23,7 +23,7 @@ class MarcaPolicy
     
     public function show(User $user)
     {
-        $permission = DB::table('user_roles')->where('role_name', 'marca.show')->first();
+        $permission = DB::table('user_roles')->where('role_name', 'marca.show')->orWhere('role_name', 'admin.all')->first();
         if(empty($permission)){
             return false;
         }
@@ -34,7 +34,7 @@ class MarcaPolicy
     
     public function store(User $user)
     {
-        $permission = DB::table('user_roles')->where('role_name', 'marca.store')->first();
+        $permission = DB::table('user_roles')->where('role_name', 'marca.store')->orWhere('role_name', 'admin.all')->first();
         if(empty($permission)){
             return false;
         }
@@ -43,9 +43,9 @@ class MarcaPolicy
         }
     }
     
-    public function update(User $user, Cliente $cliente)
+    public function update(User $user)
     {
-        $permission = DB::table('user_roles')->where('role_name', 'marca.update')->first();
+        $permission = DB::table('user_roles')->where('role_name', 'marca.update')->orWhere('role_name', 'admin.all')->first();
         if(empty($permission)){
             return false;
         }
@@ -54,9 +54,9 @@ class MarcaPolicy
         }
     }
     
-    public function delete(User $user, Cliente $cliente)
+    public function delete(User $user)
     {
-        $permission = DB::table('user_roles')->where('role_name', 'marca.delete')->first();
+        $permission = DB::table('user_roles')->where('role_name', 'marca.delete')->orWhere('role_name', 'admin.all')->first();
         if(empty($permission)){
             return false;
         }

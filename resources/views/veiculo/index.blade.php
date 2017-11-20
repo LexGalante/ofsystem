@@ -11,14 +11,14 @@
 		<i class="fa fa-table"></i> Veiculos
 	</div>
 	<div class="card-body">
-		<table class="table table-bordered" id="tabela-cores" width="100%" cellspacing="0">
+		<table class="table table-bordered table-sm table-striped table-dark" id="tabela-cores" width="100%" cellspacing="0">
 			<thead>
-				<tr class="bg-info">
+				<tr>
 					<th colspan="8">
 						<a href="{{ route('veiculo.store') }}" class="btn btn-success" data-toggle="tooltip" title="Novo"><i class="fa fa-plus"></i> Novo</a>
 					</th>
 				</tr>            
-				<tr class="bg-info">
+				<tr>
 					<th width="5%" class="text-center text-white">Cód</th>
 					<th width="20%" class="text-center text-white">Veiculo</th>
 					<th width="10%" class="text-center text-white">Placa</th>

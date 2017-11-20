@@ -17,14 +17,14 @@ Auth::routes();
 //DashBoard
 Route::get('/', 'HomeController@index')->name('home');
 
+Route::prefix('ajax')->group(function (){
+    Route::get('/endereco/{cep}', 'AjaxController@endereco')->name('ajax.endereco');
+    Route::get('/cliente/{q}', 'AjaxController@cliente')->name('ajax.cliente');
+});
+
 Route::prefix('user')->group(function (){
     Route::get('/logout', 'UserController@logout')->name('user.logout');
     Route::get('/update', 'UserController@update')->name('user.update');
-});
-
-Route::prefix('ajax')->group(function (){
-    Route::get('/endereco/{cep}', 'AjaxController@endereco')->name('ajax.endereco');
-    Route::get('/clientes/{q}', 'AjaxController@clientes')->name('ajax.clientes');
 });
 
 Route::prefix('cliente')->group(function (){

@@ -11,14 +11,14 @@
 		<i class="fa fa-table"></i> Marcas
 	</div>
 	<div class="card-body">
-		<table class="table table-bordered" id="tabela-cores" width="100%" cellspacing="0">
-			<thead>
-				<tr class="bg-info">
+		<table class="table table-bordered table-sm table-striped table-dark" id="tabela-cores" width="100%" cellspacing="0">
+			<thead class="bg-info">
+				<tr>
 					<th colspan="4">
 						<a href="{{ route('marca.store') }}" class="btn btn-success" data-toggle="tooltip" title="Novo"><i class="fa fa-plus"></i> Novo</a>
 					</th>
 				</tr>            
-				<tr class="bg-info">
+				<tr>
 					<th width="10%" class="text-center text-white">Cód</th>
 					<th width="40%" class="text-center text-white">Nome</th>
 					<th width="30%" class="text-center text-white">Origem</th>

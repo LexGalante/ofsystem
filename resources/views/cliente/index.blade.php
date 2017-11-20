@@ -11,15 +11,15 @@
 		<i class="fa fa-table"></i> Clientes
 	</div>
 	<div class="card-body">
-		<table class="table table-bordered" id="tabela-clientes" width="100%" cellspacing="0">
-            <thead>
-            	<tr class="bg-info">
+		<table class="table table-bordered table-sm table-striped table-dark" id="tabela-clientes" width="100%" cellspacing="0">
+            <thead class="thead-dark">
+            	<tr>
             		<th colspan="6">
             			<a href="{{ route('cliente.store') }}" class="btn btn-success" data-toggle="tooltip" title="Novo"><i class="fa fa-plus"></i> Novo</a>
 						<a href="{{ route('cliente.report') }}" class="btn btn-danger pull-right" data-toggle="tooltip" title="Relatório de Clientes"><i class="fa fa-file-pdf-o"></i> Relatório</a>
             		</th>
             	</tr>            
-                <tr class="bg-info">
+                <tr>
                     <th width="15%" class="text-center text-white">Nome</th>
                     <th width="25%" class="text-center text-white">Sobrenome</th>
                     <th width="5%" class="text-center text-white">Tipo</th>

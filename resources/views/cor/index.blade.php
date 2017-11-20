@@ -11,14 +11,14 @@
 		<i class="fa fa-table"></i> Cores
 	</div>
 	<div class="card-body">
-		<table class="table table-bordered" id="tabela-cores" width="100%" cellspacing="0">
-			<thead>
-				<tr class="bg-info">
+		<table class="table table-bordered table-sm table-striped table-dark" id="tabela-cores" width="100%" cellspacing="0">
+			<thead class="thead-dark">
+				<tr>
 					<th colspan="3">
 						<a href="{{ route('cor.store') }}" class="btn btn-success" data-toggle="tooltip" title="Novo"><i class="fa fa-plus"></i> Novo</a>
 					</th>
 				</tr>            
-				<tr class="bg-info">
+				<tr>
 					<th width="10%" class="text-center text-white">Cód</th>
 					<th width="65%" class="text-center text-white">Nome da Cor</th>
 					<th width="20%" class="text-center text-white">Ações</th>
@@ -43,7 +43,7 @@
 			</tbody>
 			<tfoot>
 				<tr>
-					<td colspan="3">
+					<td colspan="3" class="align-middle">
 						{{ $cores->links('vendor.pagination.bootstrap-4') }}						
 					</td>
 				</tr>

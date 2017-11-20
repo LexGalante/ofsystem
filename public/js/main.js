@@ -12,11 +12,13 @@ $(document).ready(function(){
 	$('.date').mask('00/00/0000');
 	$('.time').mask('00:00:00');
 	$('.date_time').mask('00/00/0000 00:00:00');
+	$('.date_year').mask('0000');
 	$('.cep').mask('00000-000', {
 		placeholder: "_____-___",
 		selectOnFocus: true,
 		removeMaskOnSubmit: true
 	});
+	$('.renavam').mask('00000000000');
 	$('.phone').mask('0000-0000', {
 		placeholder: "____-____",
 		selectOnFocus: true
@@ -99,21 +101,21 @@ $(document).ready(function(){
 	    };
     	
     	toastr.options = {
-		  closeButton: false,
-		  debug: false,
-		  newestOnTop: false,
-		  progressBar: false,
-		  positionClass: "toast-top-right",
-		  preventDuplicates: true,
-		  onclick: null,
-		  showDuration: 300,
-		  hideDuration: 1000,
-		  timeOut: 3500,
-		  extendedTimeOut: "1000",
-		  showEasing: "swing",
-		  hideEasing: "linear",
-		  showMethod: "fadeIn",
-		  hideMethod: "fadeOut"
+			closeButton: false,
+			debug: false,
+			newestOnTop: false,
+			progressBar: false,
+			positionClass: "toast-top-right",
+			preventDuplicates: true,
+			onclick: null,
+			showDuration: 300,
+			hideDuration: 1000,
+			timeOut: 3500,
+			extendedTimeOut: "1000",
+			showEasing: "swing",
+			hideEasing: "linear",
+			showMethod: "fadeIn",
+			hideMethod: "fadeOut"
 		}
     });
 	/**

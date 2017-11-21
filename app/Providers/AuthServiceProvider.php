@@ -12,6 +12,10 @@ use OfSystem\Marca;
 use OfSystem\Policies\MarcaPolicy;
 use OfSystem\Cor;
 use OfSystem\Policies\CorPolicy;
+use OfSystem\Cargo;
+use OfSystem\Policies\CargoPolicy;
+use OfSystem\Funcionario;
+use OfSystem\Policies\FuncionarioPolicy;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -25,7 +29,9 @@ class AuthServiceProvider extends ServiceProvider
         Cliente::class => ClientePolicy::class,
         Veiculo::class => VeiculoPolicy::class,
         Marca::class => MarcaPolicy::class,
-        Cor::class => CorPolicy::class
+        Cor::class => CorPolicy::class,
+        Cargo::class => CargoPolicy::class,
+        Funcionario::class => FuncionarioPolicy::class       
     ];
 
     /**

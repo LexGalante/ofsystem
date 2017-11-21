@@ -31,26 +31,26 @@
             <tbody>
             	@forelse($clientes as $cliente)
                 	<tr>
-                    	<td>
+                    	<td class="align-middle">
                     		{{ $cliente->nome }}
                     	</td>
-                    	<td>
+                    	<td class="align-middle">
                     		{{ $cliente->sobrenome }}
                     	</td>
-                    	<td>
+                    	<td class="align-middle">
                     		{{ ($cliente->tipo == OfSystem\Cliente::TIPO_FISICA)? 'FISICA' : 'JURIDICA' }}
                     	</td>
-                    	<td>
+                    	<td class="align-middle">
                     		{{ empty($cliente->logradouro)? 'NÃO DEFINIDO' : strtoupper($cliente->logradouro.', '.$cliente->numero) }}		
                     	</td>
-                    	<td align="center">
-                    		@if($cliente->tipo == OfSystem\Cliente::CLIENTE_ATIVO)
+                    	<td align="center" class="align-middle">
+                    		@if($cliente->tipo == OfSystem\Cliente::ATIVO)
                     			<span class="badge badge-success"><i class="fa fa-thumbs-o-up"></i></span>
                     		@else
                     			<span class="badge badge-danger"><i class="fa fa-thumbs-o-down"></i></span>	
                     		@endif		
                     	</td>
-                    	<td align="center">
+                    	<td align="center" class="align-middle">
                     		<div class="btn-group" role="group" aria-label="Basic example">
                             	<a href="{{ route('cliente.show', ['id'=>$cliente->id]) }}" class="btn btn-info" data-toggle="tooltip" title="Visualizar"><i class="fa fa-eye"></i></a>
                               	<a href="{{ route('cliente.update', ['id'=>$cliente->id]) }}" class="btn btn-warning" data-toggle="tooltip" title="Editar"><i class="fa fa-edit"></i></a>

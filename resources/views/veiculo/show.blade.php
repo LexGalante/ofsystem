@@ -36,7 +36,7 @@
 				<a href="{{ route('veiculo.store') }}" class="btn btn-success btn-block" data-toggle="tooltip" title="Novo"><i class="fa fa-plus"></i> Novo</a>
 			</div>
 			<div class="col-md-4">
-				<a href="{{ route('veiculo.update', ['id'=>$veiculo->id]) }}" class="btn btn-warning btn-block" data-toggle="tooltip" title="Editar"><i class="fa fa-edit"></i> Editar</a>
+				<a href="{{ route('veiculo.edit', ['id'=>$veiculo->id]) }}" class="btn btn-warning btn-block" data-toggle="tooltip" title="Editar"><i class="fa fa-edit"></i> Editar</a>
 			</div>
 			<div class="col-md-4">
 				<a href="{{ route('veiculo.delete', ['id'=>$veiculo->id]) }}" class="btn btn-danger btn-block" data-toggle="tooltip" title="Deletar"><i class="fa fa-trash"></i> Deletar</a>

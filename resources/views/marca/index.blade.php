@@ -12,10 +12,10 @@
 	</div>
 	<div class="card-body">
 		<table class="table table-bordered table-sm table-striped table-dark" id="tabela-cores" width="100%" cellspacing="0">
-			<thead class="bg-info">
+			<thead>
 				<tr>
 					<th colspan="4">
-						<a href="{{ route('marca.store') }}" class="btn btn-success" data-toggle="tooltip" title="Novo"><i class="fa fa-plus"></i> Novo</a>
+						<a href="{{ route('marca.create') }}" class="btn btn-success" data-toggle="tooltip" title="Novo"><i class="fa fa-plus"></i> Novo</a>
 					</th>
 				</tr>            
 				<tr>
@@ -28,9 +28,9 @@
 			<tbody>
     			@forelse($marcas as $marca)
     				<tr>
-    					<td align="center">{{ $marca->id }}</td>
-    					<td>{{ $marca->marca }}</td>
-    					<td>
+    					<td align="center" class="align-middle">{{ $marca->id }}</td>
+    					<td class="align-middle">{{ $marca->marca }}</td>
+    					<td class="align-middle">
     						@if($marca->origem == 'N')
     							NACIONAL
     						@elseif($marca->origem == 'I')
@@ -39,10 +39,10 @@
     							NACIONAL/IMPORTADO
     						@endif    					
     					</td>
-    					<td align="center">
+    					<td align="center" class="align-middle">
                     		<div class="btn-group" role="group">
                             	<a href="{{ route('marca.show', ['id'=>$marca->id]) }}" class="btn btn-info" data-toggle="tooltip" title="Visualizar"><i class="fa fa-eye"></i></a>
-                              	<a href="{{ route('marca.update', ['id'=>$marca->id]) }}" class="btn btn-warning" data-toggle="tooltip" title="Editar"><i class="fa fa-edit"></i></a>
+                              	<a href="{{ route('marca.edit', ['id'=>$marca->id]) }}" class="btn btn-warning" data-toggle="tooltip" title="Editar"><i class="fa fa-edit"></i></a>
                               	<a href="{{ route('marca.delete', ['id'=>$marca->id]) }}" class="btn btn-danger" data-toggle="tooltip" title="Deletar"><i class="fa fa-trash"></i></a>
                             </div>		
                     	</td>

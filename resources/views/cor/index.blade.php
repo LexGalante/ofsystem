@@ -15,7 +15,7 @@
 			<thead class="thead-dark">
 				<tr>
 					<th colspan="3">
-						<a href="{{ route('cor.store') }}" class="btn btn-success" data-toggle="tooltip" title="Novo"><i class="fa fa-plus"></i> Novo</a>
+						<a href="{{ route('cor.create') }}" class="btn btn-success" data-toggle="tooltip" title="Novo"><i class="fa fa-plus"></i> Novo</a>
 					</th>
 				</tr>            
 				<tr>
@@ -27,12 +27,12 @@
 			<tbody>
     			@forelse($cores as $cor)
     				<tr>
-    					<td align="center">{{ $cor->id }}</td>
-    					<td>{{ $cor->cor }}</td>
-    					<td align="center">
+    					<td align="center" class="align-middle">{{ $cor->id }}</td>
+    					<td class="align-middle">{{ $cor->cor }}</td>
+    					<td align="center" class="align-middle">
                     		<div class="btn-group" role="group">
                             	<a href="{{ route('cor.show', ['id'=>$cor->id]) }}" class="btn btn-info" data-toggle="tooltip" title="Visualizar"><i class="fa fa-eye"></i></a>
-                              	<a href="{{ route('cor.update', ['id'=>$cor->id]) }}" class="btn btn-warning" data-toggle="tooltip" title="Editar"><i class="fa fa-edit"></i></a>
+                              	<a href="{{ route('cor.edit', ['id'=>$cor->id]) }}" class="btn btn-warning" data-toggle="tooltip" title="Editar"><i class="fa fa-edit"></i></a>
                               	<a href="{{ route('cor.delete', ['id'=>$cor->id]) }}" class="btn btn-danger" data-toggle="tooltip" title="Deletar"><i class="fa fa-trash"></i></a>
                             </div>		
                     	</td>

@@ -20,59 +20,62 @@ class CorController extends Controller
         return view('cor.show', compact('cor'));
     }
     
-    public function store(CorRequest $request)
+    public function create()
     {
-        if($request->method() == Request::METHOD_GET){
-            return view('cor.create');
-        }
-        else{
-            try{
-                $cor = Cor::create($request->all());
-                $cor->save();
-                if($cor){
-                    \Session::flash('alert', ['class' => 'success', 'message' => 'Cor salva com sucesso!']);
-                }
-                else{
-                    \Session::flash('alert', ['class' => 'danger', 'message' => 'Não foi possivel salvar cor']);
-                }
-            }
-            catch(\Exception $e){
-                \Session::flash('alert', ['class' => 'danger', 'message' => "Erro desconhecido ({$e->getMessage()})"]);
-            }
-            
-            return redirect()->route('cor.index');
-        }
+        return view('cor.create');
     }
     
-    public function update(CorRequest$request, $id)
+    
+    public function store(CorRequest $request)
+    {
+        try{
+            $cor = Cor::create($request->all());
+            $cor->save();
+            if($cor){
+                \Session::flash('alert', ['class' => 'success', 'message' => 'Cor salva com sucesso!']);
+            }
+            else{
+                \Session::flash('alert', ['class' => 'danger', 'message' => 'Não foi possivel salvar cor']);
+            }
+        }
+        catch(\Exception $e){
+            \Session::flash('alert', ['class' => 'danger', 'message' => "Erro desconhecido ({$e->getMessage()})"]);
+        }
+        
+        return redirect()->route('cor.index');
+    }
+    
+    public function edit($id)
     {
         $cor = Cor::find($id);
-        if($request->method() == Request::METHOD_GET){
-            return view('cor.update', compact('cor'));
-        }
-        else{
-            try{
-                $cor->fill($request->all());
-                if($cor){
-                    \Session::flash('alert', ['class' => 'success', 'message' => 'Cor alterado com sucesso!']);
-                }
-                else{
-                    \Session::flash('alert', ['class' => 'danger', 'message' => 'Não foi possivel alterar o cor']);
-                }
+        return view('cor.update', compact('cor'));
+    }
+    
+    public function update(CorRequest $request, $id)
+    {
+        try{
+            $cor = Cor::find($id);
+            $cor->fill($request->all());
+            $cor->save();
+            if($cor){
+                \Session::flash('alert', ['class' => 'success', 'message' => 'Cor alterada com sucesso!']);
             }
-            catch(\Exception $e){
-                \Session::flash('alert', ['class' => 'danger', 'message' => "Erro desconhecido ({$e->getMessage()})"]);
+            else{
+                \Session::flash('alert', ['class' => 'danger', 'message' => 'Não foi possivel alterar o cor']);
             }
-            
-            return redirect()->route('cor.index');
         }
+        catch(\Exception $e){
+            \Session::flash('alert', ['class' => 'danger', 'message' => "Erro desconhecido ({$e->getMessage()})"]);
+        }
+        
+        return redirect()->route('cor.index');
     }
     
     public function delete($id)
     {
         try{
             Cor::destroy($id);
-            \Session::flash('alert', ['class' => 'success', 'message' => 'Cor deletada com sucesso!']);
+            \Session::flash('alert', ['class' => 'success', 'message' => 'Cor deletado com sucesso!']);
         }
         catch(\Exception $e){
             \Session::flash('alert', ['class' => 'danger', 'message' => "Erro desconhecido ({$e->getMessage()})"]);

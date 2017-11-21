@@ -10,7 +10,6 @@
 	<!-- FORM -->
 	<form method="post" action="{{ route('marca.update', ['id' => $marca->id]) }}">
 		{{ csrf_field() }}
-		<input type="hidden" name="_method" value="put"/>
     	<div class="card-header">
     		<i class="fa fa-plus"></i> Nova Marca de Veículo
     	</div>

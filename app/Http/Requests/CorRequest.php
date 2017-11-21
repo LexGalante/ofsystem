@@ -3,7 +3,6 @@
 namespace OfSystem\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use OfSystem\Cor;
 use OfSystem\Util\Util;
 
 class CorRequest extends FormRequest
@@ -15,14 +14,7 @@ class CorRequest extends FormRequest
      */
     public function authorize()
     {
-        if($this->method == self::METHOD_POST){
-            return $this->user()->can('cor.store', Cor::class);
-        }else if($this->method == self::METHOD_PUT){
-            return $this->user()->can('cor.update', Cor::class);
-        }
-        else{
-            return true;
-        }
+        return true;
     }
 
     /**
@@ -32,15 +24,9 @@ class CorRequest extends FormRequest
      */
     public function rules()
     {
-        switch($this->method){
-            case self::METHOD_POST:
-                return Cor::rules();
-                break;
-            case self::METHOD_PUT:
-                return Cor::rules();
-                break;
-            default: return [];
-        }
+        return [
+            'cor' => 'required|string|between:3,100',
+        ];
     }
     
     /**

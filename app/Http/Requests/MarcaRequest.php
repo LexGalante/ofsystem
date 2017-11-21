@@ -3,7 +3,6 @@
 namespace OfSystem\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use OfSystem\Marca;
 use OfSystem\Util\Util;
 
 class MarcaRequest extends FormRequest
@@ -15,14 +14,7 @@ class MarcaRequest extends FormRequest
      */
     public function authorize()
     {
-        if($this->method == self::METHOD_POST){
-            return $this->user()->can('marca.store', Marca::class);
-        }else if($this->method == self::METHOD_PUT){
-            return $this->user()->can('marca.update', Marca::class);
-        }
-        else{
-            return true;
-        }
+        return true;
     }
 
     /**
@@ -32,15 +24,10 @@ class MarcaRequest extends FormRequest
      */
     public function rules()
     {
-        switch($this->method){
-            case self::METHOD_POST:
-                return Marca::rules();
-                break;
-            case self::METHOD_PUT:
-                return Marca::rules();
-                break;
-            default: return [];
-        }
+        return [
+            'marca' => 'required|string|unique:marcas|between:3,100',
+            'origem' => 'in:N,I,A'
+        ];
     }
     
     /**

@@ -1,78 +1,99 @@
 $(document).ready(function(){
-	/**
-	 * INICIO - CONFIGURAÇÕES DE PLUGINS
-	 */
-	//Alerts
-	$(".alert").alert();
-	//Tooltip
-	$('[data-toggle="tooltip"]').tooltip();
-	//Popover
-	$('[data-toggle="popover"]').popover();
-	//Mask
-	$('.date').mask('00/00/0000');
-	$('.time').mask('00:00:00');
-	$('.date_time').mask('00/00/0000 00:00:00');
-	$('.date_year').mask('0000');
-	$('.cep').mask('00000-000', {
-		placeholder: "_____-___",
-		selectOnFocus: true,
-		removeMaskOnSubmit: true
-	});
-	$('.renavam').mask('00000000000');
-	$('.phone').mask('0000-0000', {
-		placeholder: "____-____",
-		selectOnFocus: true
-	});
-	$('.phone_with_ddd').mask('(00) 0000-0000',{
-		placeholder: "(__) _____-____",
-		selectOnFocus: true,
-		removeMaskOnSubmit: true
-	});
-	$('.phone_us').mask('(000) 000-0000');
-	$('.mixed').mask('AAA 000-S0S');
-	$('.cpf').mask('000.000.000-00', {
-		reverse: true,
-		placeholder: "___.___.___-__",
-		selectOnFocus: true,
-		removeMaskOnSubmit: true
-	});
-	$('.cnpj').mask('00.000.000/0000-00', {
-		reverse: true,
-		placeholder: "__.___.___/___-__",
-		selectOnFocus: true
-	});
-	$('.placa').mask('aaa-9999', {
-		placeholder: "___-____",
-	});
-	$('.money').mask('000.000.000.000.000,00', {
-		reverse: true
-	});
-	$('.money2').mask("#.##0,00", {
-		reverse: true
-	});
-	$('.ip_address').mask('0ZZ.0ZZ.0ZZ.0ZZ', {
-		translation: {
-			'Z': {
-				pattern: /[0-9]/, optional: true
-			}
-	    }
-	});
-	$('.ip_address').mask('099.099.099.099');
-	$('.percent').mask('##0,00%', {reverse: true});
-	$('.clear-if-not-match').mask("00/00/0000", {clearIfNotMatch: true});
-	$('.placeholder').mask("00/00/0000", {placeholder: "__/__/____"});
-	$('.fallback').mask("00r00r0000", {
-	  translation: {
-	    'r': {
-	    	pattern: /[\/]/,
-	    	fallback: '/'
-	    },
-	   	placeholder: "__/__/____"
-	  }
-	});
-	$('.selectonfocus').mask("00/00/0000", {selectOnFocus: true});
 	//JCONFIRM & TOASTR
     $(function(){
+    	/**
+    	 * INICIO - CONFIGURAÇÕES DE PLUGINS
+    	 */
+    	//Alerts
+    	$(".alert").alert();
+    	//Tooltip
+    	$('[data-toggle="tooltip"]').tooltip();
+    	//Popover
+    	$('[data-toggle="popover"]').popover();
+    	//Mask
+    	$('.date').mask('00/00/0000', {
+    		placeholder: "__/__/____",
+    		selectOnFocus: true,
+    	});
+    	$('.time').mask('00:00:00');
+    	$('.date_time').mask('00/00/0000 00:00:00');
+    	$('.date_year').mask('0000');
+    	$('.cep').mask('00000-000', {
+    		placeholder: "_____-___",
+    		selectOnFocus: true,
+    		removeMaskOnSubmit: true
+    	});
+    	$('.small-int').mask('00', {
+    		selectOnFocus: true,
+    		removeMaskOnSubmit: true
+    	});
+    	$('.renavam').mask('00000000000');
+    	$('.phone').mask('0000-0000', {
+    		placeholder: "____-____",
+    		selectOnFocus: true
+    	});
+    	$('.phone_with_ddd').mask('(00) 0000-0000',{
+    		placeholder: "(__) _____-____",
+    		selectOnFocus: true,
+    		removeMaskOnSubmit: true
+    	});
+    	$('.phone_us').mask('(000) 000-0000');
+    	$('.mixed').mask('AAA 000-S0S');
+    	$('.cpf').mask('000.000.000-00', {
+    		reverse: true,
+    		placeholder: "___.___.___-__",
+    		selectOnFocus: true,
+    		removeMaskOnSubmit: true
+    	});
+    	$('.cnpj').mask('00.000.000/0000-00', {
+    		reverse: true,
+    		placeholder: "__.___.___/___-__",
+    		selectOnFocus: true
+    	});
+    	$('.placa').mask('AAA-0000', {
+    		placeholder: "___-____",
+    	});
+    	$('.money').mask('000.000.000,00', {
+    		reverse: true, 
+    		placeholder: "R$ "
+    	});
+    	$('.money2').mask("#.##0,00", {
+    		reverse: true
+    	});
+    	$('.ip_address').mask('0ZZ.0ZZ.0ZZ.0ZZ', {
+    		translation: {
+    			'Z': {
+    				pattern: /[0-9]/, optional: true
+    			}
+    	    }
+    	});
+    	$('.ip_address').mask('099.099.099.099');
+    	$('.percent').mask('##0,00%', {reverse: true});
+    	$('.clear-if-not-match').mask("00/00/0000", {clearIfNotMatch: true});
+    	$('.placeholder').mask("00/00/0000", {placeholder: "__/__/____"});
+    	$('.fallback').mask("00r00r0000", {
+    	  translation: {
+    	    'r': {
+    	    	pattern: /[\/]/,
+    	    	fallback: '/'
+    	    },
+    	   	placeholder: "__/__/____"
+    	  }
+    	});
+    	$('.selectonfocus').mask("00/00/0000", {selectOnFocus: true});
+    	$('.datepicker').datepicker({
+            uiLibrary: 'bootstrap4',
+            iconsLibrary: 'fontawesome',
+            locale: 'pt-BR',
+            dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
+            dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D'],
+            dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
+            monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+            monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+            nextText: 'Proximo',
+            prevText: 'Anterior'
+        });
+    	
     	jconfirm.defaults = {
 	        title: 'Olá',
 	        content: 'Deseja confirmar a operação?',
@@ -117,8 +138,8 @@ $(document).ready(function(){
 			showMethod: "fadeIn",
 			hideMethod: "fadeOut"
 		}
+    	/**
+    	 * FIM - CONFIGURAÇÕES DE PLUGINS
+    	 */
     });
-	/**
-	 * FIM - CONFIGURAÇÕES DE PLUGINS
-	 */
 });

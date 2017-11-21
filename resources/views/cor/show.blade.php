@@ -23,7 +23,7 @@
 				<a href="{{ route('cor.store') }}" class="btn btn-success btn-block" data-toggle="tooltip" title="Novo"><i class="fa fa-plus"></i> Novo</a>
 			</div>
 			<div class="col-md-4">
-				<a href="{{ route('cor.update', ['id'=>$cor->id]) }}" class="btn btn-warning btn-block" data-toggle="tooltip" title="Editar"><i class="fa fa-edit"></i> Editar</a>
+				<a href="{{ route('cor.edit', ['id'=>$cor->id]) }}" class="btn btn-warning btn-block" data-toggle="tooltip" title="Editar"><i class="fa fa-edit"></i> Editar</a>
 			</div>
 			<div class="col-md-4">
 				<a href="{{ route('cor.delete', ['id'=>$cor->id]) }}" class="btn btn-danger btn-block" data-toggle="tooltip" title="Deletar"><i class="fa fa-trash"></i> Deletar</a>

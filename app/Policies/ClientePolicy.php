@@ -13,7 +13,7 @@ class ClientePolicy
     
     public function index(User $user)
     {
-        $permission = DB::table('user_roles')->where('role_name', 'cliente.index')->orWhere('role_name', 'admin.all')->first();  
+        $permission = DB::table('user_roles')->where('role_name', 'cliente.index')->orWhere('role_name', 'admin')->first();  
         if(empty($permission)){
             return false;
         }
@@ -24,7 +24,7 @@ class ClientePolicy
     
     public function show(User $user)
     {
-        $permission = DB::table('user_roles')->where('role_name', 'cliente.show')->orWhere('role_name', 'admin.all')->first();
+        $permission = DB::table('user_roles')->where('role_name', 'cliente.show')->orWhere('role_name', 'admin')->first();
         if(empty($permission)){
             return false;
         }
@@ -35,7 +35,7 @@ class ClientePolicy
 
     public function store(User $user)
     {
-        $permission = DB::table('user_roles')->where('role_name', 'cliente.store')->orWhere('role_name', 'admin.all')->first();
+        $permission = DB::table('user_roles')->where('role_name', 'cliente.store')->orWhere('role_name', 'admin')->first();
         if(empty($permission)){
             return false;
         }
@@ -46,7 +46,7 @@ class ClientePolicy
 
     public function update(User $user)
     {
-        $permission = DB::table('user_roles')->where('role_name', 'cliente.update')->orWhere('role_name', 'admin.all')->first();
+        $permission = DB::table('user_roles')->where('role_name', 'cliente.update')->orWhere('role_name', 'admin')->first();
         if(empty($permission)){
             return false;
         }
@@ -57,7 +57,7 @@ class ClientePolicy
 
     public function delete(User $user)
     {
-        $permission = DB::table('user_roles')->where('role_name', 'cliente.delete')->orWhere('role_name', 'admin.all')->first();
+        $permission = DB::table('user_roles')->where('role_name', 'cliente.delete')->orWhere('role_name', 'admin')->first();
         if(empty($permission)){
             return false;
         }

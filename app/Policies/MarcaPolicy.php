@@ -10,9 +10,9 @@ class MarcaPolicy
 {
     use HandlesAuthorization;
     
-    public function index(User $user)
+    public function listar(User $user)
     {
-        $permission = DB::table('user_roles')->where('role_name', 'marca.index')->orWhere('role_name', 'admin.all')->first();
+        $permission = DB::table('user_roles')->where('role_name', 'marca.listar')->orWhere('role_name', 'admin')->first();
         if(empty($permission)){
             return false;
         }
@@ -21,9 +21,9 @@ class MarcaPolicy
         }
     }
     
-    public function show(User $user)
+    public function visualizar(User $user)
     {
-        $permission = DB::table('user_roles')->where('role_name', 'marca.show')->orWhere('role_name', 'admin.all')->first();
+        $permission = DB::table('user_roles')->where('role_name', 'marca.visualizar')->orWhere('role_name', 'admin')->first();
         if(empty($permission)){
             return false;
         }
@@ -32,9 +32,9 @@ class MarcaPolicy
         }
     }
     
-    public function store(User $user)
+    public function criar(User $user)
     {
-        $permission = DB::table('user_roles')->where('role_name', 'marca.store')->orWhere('role_name', 'admin.all')->first();
+        $permission = DB::table('user_roles')->where('role_name', 'marca.criar')->orWhere('role_name', 'admin')->first();
         if(empty($permission)){
             return false;
         }
@@ -43,9 +43,9 @@ class MarcaPolicy
         }
     }
     
-    public function update(User $user)
+    public function alterar(User $user)
     {
-        $permission = DB::table('user_roles')->where('role_name', 'marca.update')->orWhere('role_name', 'admin.all')->first();
+        $permission = DB::table('user_roles')->where('role_name', 'marca.alterar')->orWhere('role_name', 'admin')->first();
         if(empty($permission)){
             return false;
         }
@@ -54,9 +54,9 @@ class MarcaPolicy
         }
     }
     
-    public function delete(User $user)
+    public function excluir(User $user)
     {
-        $permission = DB::table('user_roles')->where('role_name', 'marca.delete')->orWhere('role_name', 'admin.all')->first();
+        $permission = DB::table('user_roles')->where('role_name', 'marca.excluir')->orWhere('role_name', 'admin')->first();
         if(empty($permission)){
             return false;
         }

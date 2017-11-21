@@ -4,82 +4,85 @@ namespace OfSystem\Http\Controllers;
 
 use OfSystem\Funcionario;
 use Illuminate\Http\Request;
+use OfSystem\Http\Requests\FuncionarioRequest;
+use OfSystem\Cargo;
 
 class FuncionarioController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $funcionarios = Funcionario::paginate(15);
+        return view('funcionario.index', compact('funcionarios'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
+    public function show($id)
+    {
+        $funcionario = Funcionario::find($id);
+        return view('funcionario.show', compact('funcionario'));
+    }
+    
     public function create()
     {
-        //
+        $cargos = Cargo::all();
+        return view('funcionario.create', compact('cargos'));
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    
+    
+    public function store(FuncionarioRequest $request)
     {
-        //
+        try{
+            $funcionario = new Funcionario();
+            $funcionario->fill($request->all());
+            if($funcionario->save()){
+                \Session::flash('alert', ['class' => 'success', 'message' => 'Funcionario salvo com sucesso!']);
+            }
+            else{
+                \Session::flash('alert', ['class' => 'danger', 'message' => 'Não foi possivel salvar funcionario']);
+            }
+        }
+        catch(\Exception $e){
+            \Session::flash('alert', ['class' => 'danger', 'message' => "Erro desconhecido ({$e->getMessage()})"]);
+        }
+        
+        return redirect()->route('funcionario.index');
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \OfSystem\Funcionario  $funcionario
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Funcionario $funcionario)
+    
+    public function edit($id)
     {
-        //
+        $funcionario = Funcionario::find($id);
+        $cargos = Cargo::all();
+        return view('funcionario.update', compact('funcionario', 'cargos'));
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \OfSystem\Funcionario  $funcionario
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Funcionario $funcionario)
+    
+    public function update(FuncionarioRequest $request, $id)
     {
-        //
+        try{
+           $funcionario = Funcionario::find($id);
+           $funcionario->fill($request->all());           
+           if($funcionario->save()){
+               \Session::flash('alert', ['class' => 'success', 'message' => 'Funcionario alterado com sucesso!']);
+           }
+           else{
+               \Session::flash('alert', ['class' => 'danger', 'message' => 'Não foi possivel alterar o funcionario']);
+           }           
+        }
+        catch(\Exception $e){
+           \Session::flash('alert', ['class' => 'danger', 'message' => "Erro desconhecido ({$e->getMessage()})"]);
+        }
+        
+        return redirect()->route('funcionario.index');
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \OfSystem\Funcionario  $funcionario
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Funcionario $funcionario)
+    
+    public function delete($id)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \OfSystem\Funcionario  $funcionario
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Funcionario $funcionario)
-    {
-        //
+        try{
+            Funcionario::destroy($id);
+            \Session::flash('alert', ['class' => 'success', 'message' => 'Funcionario deletado com sucesso!']);
+        }
+        catch(\Exception $e){
+            \Session::flash('alert', ['class' => 'danger', 'message' => "Erro desconhecido ({$e->getMessage()})"]);
+        }
+        
+        return redirect()->route('funcionario.index');
     }
 }

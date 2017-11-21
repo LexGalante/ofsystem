@@ -10,9 +10,9 @@ class VeiculoPolicy
 {
     use HandlesAuthorization;
 
-    public function index(User $user)
+    public function listar(User $user)
     {
-        $permission = DB::table('user_roles')->where('role_name', 'veiculo.index')->orWhere('role_name', 'admin.all')->first();  
+        $permission = DB::table('user_roles')->where('role_name', 'veiculo.listar')->orWhere('role_name', 'admin')->first();
         if(empty($permission)){
             return false;
         }
@@ -21,9 +21,9 @@ class VeiculoPolicy
         }
     }
     
-    public function show(User $user)
+    public function visualizar(User $user)
     {
-        $permission = DB::table('user_roles')->where('role_name', 'veiculo.show')->orWhere('role_name', 'admin.all')->first();
+        $permission = DB::table('user_roles')->where('role_name', 'veiculo.visualizar')->orWhere('role_name', 'admin')->first();
         if(empty($permission)){
             return false;
         }
@@ -31,10 +31,10 @@ class VeiculoPolicy
             return true;
         }
     }
-
-    public function store(User $user)
+    
+    public function criar(User $user)
     {
-        $permission = DB::table('user_roles')->where('role_name', 'veiculo.store')->orWhere('role_name', 'admin.all')->first();
+        $permission = DB::table('user_roles')->where('role_name', 'veiculo.criar')->orWhere('role_name', 'admin')->first();
         if(empty($permission)){
             return false;
         }
@@ -42,10 +42,10 @@ class VeiculoPolicy
             return true;
         }
     }
-
-    public function update(User $user)
+    
+    public function alterar(User $user)
     {
-        $permission = DB::table('user_roles')->where('role_name', 'veiculo.update')->orWhere('role_name', 'admin.all')->first();
+        $permission = DB::table('user_roles')->where('role_name', 'veiculo.alterar')->orWhere('role_name', 'admin')->first();
         if(empty($permission)){
             return false;
         }
@@ -53,10 +53,10 @@ class VeiculoPolicy
             return true;
         }
     }
-
-    public function delete(User $user)
+    
+    public function excluir(User $user)
     {
-        $permission = DB::table('user_roles')->where('role_name', 'veiculo.delete')->orWhere('role_name', 'admin.all')->first();
+        $permission = DB::table('user_roles')->where('role_name', 'veiculo.excluir')->orWhere('role_name', 'admin')->first();
         if(empty($permission)){
             return false;
         }

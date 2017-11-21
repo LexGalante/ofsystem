@@ -18,29 +18,24 @@
 				<div class="col-md-2">
 					<div class="form-group">
                         <input type="text" class="form-control" id="cliente_id" name="cliente_id" readonly="readonly">
-                        @if ($errors->has('cliente_id'))
-                        	<small class="form-text text-muted">{{ $errors->first('cliente_id') }}</small>
-                        @endif
                         <small class="form-text text-muted">Cód Cliente</small>
                 	</div>
     			</div>
 				<div class="col-md-3">
 					<div class="form-group">
-    					<input id="typeahead" width="100%" class="form-control typeahead tt-query" type="text" autocomplete="off" spellcheck="false" placeholder="Pesquise um Cliente...">
+    					<input required="required" id="typeahead" width="100%" class="form-control typeahead tt-query" type="text" autocomplete="off" spellcheck="false" placeholder="Pesquise um Cliente...">
     					<small class="form-text text-muted"><i class="fa fa-search"></i> Pesquise pelo nome/sobrenome</small>
     				</div>
     			</div>
     			<div class="col-md-3">
 					<div class="form-group">
-                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome do Veiculo">
-                        @if ($errors->has('nome'))
-                        	<small class="form-text text-muted">{{ $errors->first('nome') }}</small>
-                        @endif
+                        <input required="required" type="text" class="form-control" id="nome" name="nome" placeholder="Nome do Veiculo">
                 	</div>
     			</div>
     			<div class="col-md-2">
 					<div class="form-group">
-                    	<select class="form-control" id="marca_id" name="marca_id">
+                    	<select required="required" class="form-control" id="marca_id" name="marca_id">
+                    		<option>MARCA</option>
                     		@foreach ($marcas as $marca)
                     			<option value="{{ $marca->id }}">{{ $marca->marca }}</option>
                     		@endforeach	
@@ -52,43 +47,39 @@
 					<div class="form-group">
                         <input type="text" class="form-control placa" id="placa" name="placa">
                         <small class="form-text text-muted"><i class="fa fa-info"></i> Placa</small>
-                        @if ($errors->has('placa'))
-                        	<small class="form-text text-muted">{{ $errors->first('placa') }}</small>
-                        @endif
                 	</div>
     			</div>
 			</div>
 			<div class="row">
 				<div class="col-md-2">
+					<div class="form-group">
+                    	<select required="required" class="form-control" id="cor_id" name="cor_id">
+                    		<option >COR</option>
+                    		@foreach ($cores as $cor)
+                    			<option value="{{ $cor->id }}">{{ $cor->cor }}</option>
+                    		@endforeach	
+                    	</select>
+                    	<small class="form-text text-muted"><i class="fa fa-info"></i> Cor</small>
+                	</div>
+    			</div>
+				<div class="col-md-2">
     				<div class="form-group">
                         <input type="text" class="form-control date_year" id="ano" name="ano" placeholder="Ano">
-                        @if ($errors->has('ano'))
-                        	<small class="form-text text-muted">{{ $errors->first('ano') }}</small>
-                        @endif
                 	</div>					
 				</div>
 				<div class="col-md-2">
     				<div class="form-group">
                         <input type="text" class="form-control date_year" id="modelo" name="modelo" placeholder="Modelo">
-                        @if ($errors->has('modelo'))
-                        	<small class="form-text text-muted">{{ $errors->first('modelo') }}</small>
-                        @endif
                 	</div>					
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-2">
     				<div class="form-group">
                         <input type="text" class="form-control renavam" id="renavam" name="renavam" placeholder="Renavam">
-                        @if ($errors->has('renavam'))
-                        	<small class="form-text text-muted">{{ $errors->first('renavam') }}</small>
-                        @endif
                 	</div>					
 				</div>
-				<div class="col-md-5">
+				<div class="col-md-4">
     				<div class="form-group">
                         <input type="text" class="form-control" id="chassi" name="chassi" placeholder="Chassi">
-                        @if ($errors->has('chassi'))
-                        	<small class="form-text text-muted">{{ $errors->first('chassi') }}</small>
-                        @endif
                 	</div>					
 				</div>
 			</div>

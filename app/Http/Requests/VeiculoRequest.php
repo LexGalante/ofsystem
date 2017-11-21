@@ -4,7 +4,6 @@ namespace OfSystem\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use OfSystem\Util\Util;
-use OfSystem\Veiculo;
 
 class VeiculoRequest extends FormRequest
 {
@@ -15,14 +14,7 @@ class VeiculoRequest extends FormRequest
      */
     public function authorize()
     {
-        if($this->method == self::METHOD_POST){
-            return $this->user()->can('veiculo.store', Veiculo::class);
-        }else if($this->method == self::METHOD_PUT){
-            return $this->user()->can('veiculo.update', Veiculo::class);
-        }
-        else{
-            return true;
-        }
+        return true;
     }
 
     /**
@@ -32,15 +24,18 @@ class VeiculoRequest extends FormRequest
      */
     public function rules()
     {
-        switch($this->method){
-            case self::METHOD_POST:
-                return Veiculo::rules();
-                break;
-            case self::METHOD_PUT:
-                return Veiculo::rules();
-                break;
-            default: return [];
-        }
+        return [
+            'cliente_id' => 'required',
+            'marca_id' => 'required',
+            'cor_id' => 'required',
+            'nome' => 'required|string|between:3,100',
+            'placa' => 'required|unique:veiculos|string|between:5,200',
+            'ano' => 'sometimes|nullable|date_format:"Y"',
+            'modelo' => 'sometimes|nullable|date_format:"Y"',
+            'renavam' => 'sometimes|nullable|between:3,20',
+            'chassi' => 'sometimes|nullable|between:3,100',
+            'situacao' => 'in:A,I'
+        ];
     }
     
     /**

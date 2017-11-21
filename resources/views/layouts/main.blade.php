@@ -7,17 +7,19 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <title>Of System</title>
-        <!-- Bootstrap core CSS-->
+        <!-- BOOTSTRAP-->
         <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-        <!-- Custom fonts for this template-->
+        <!-- PLUGINS-->
         <link href="{{ asset('fonts/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
-        <!-- Page level plugin CSS-->
         <link href="{{ asset('plugins/data-tables/css/data-tables.css') }}" rel="stylesheet">
         <link href="{{ asset('plugins/toastr/toastr.min.css') }}" rel="stylesheet">
         <link href="{{ asset('plugins/jquery-confirm/jquery-confirm.min.css') }}" rel="stylesheet">
-        <!-- Custom styles for this template-->
+        <link href="{{ asset('plugins/jquery-ui/jquery-ui.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('plugins/jquery-ui/jquery-ui.structure.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('plugins/jquery-ui/jquery-ui.theme.min.css') }}" rel="stylesheet">
+        <!-- TEMPLATE -->
         <link href="{{ asset('css/sb-admin.css') }}" rel="stylesheet">
-        <!-- CSS da Aplicação -->
+        <!-- APLICAÇÃO -->
         <link href="{{ asset('css/main.css') }}" rel="stylesheet" type="text/css">
     </head>    
     <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -71,8 +73,9 @@
                         	<li>
                           		<a class="nav-link-collapse collapsed" data-toggle="collapse" href="#nav-link-funcionarios">Funcionários</a>
                           		<ul class="sidenav-third-level collapse" id="nav-link-funcionarios">
-                            		<li><a href="#"><i class="fa fa-plus"></i> Novo</a></li>
-                            		<li><a href="#"><i class="fa fa-search"></i> Consultar</a></li>
+                            		<li><a href="{{ route('funcionario.store') }}"><i class="fa fa-plus"></i> Novo</a></li>
+                            		<li><a href="{{ route('funcionario.index') }}"><i class="fa fa-search"></i> Consultar</a></li>
+                            		<li><a href="{{ route('cargo.index') }}"><i class="fa fa-search"></i> Cargos</a></li>
                           		</ul>
                         	</li>
                         </ul>
@@ -124,6 +127,7 @@
             <script src="{{ asset('plugins/toastr/toastr.min.js') }}"></script>
             <script src="{{ asset('plugins/jquery-confirm/jquery-confirm.min.js') }}"></script>
             <script src="{{ asset('plugins/typeahead/typeahead.js') }}"></script>
+            <script src="{{ asset('plugins/jquery-ui/jquery-ui.min.js') }}"></script>
             <!-- TEMPLATE -->
             <script src="{{ asset('js/sb-admin.min.js') }}"></script>
             <script src="{{ asset('js/sb-admin-datatables.min.js') }}"></script>

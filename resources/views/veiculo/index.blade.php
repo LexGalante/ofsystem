@@ -15,7 +15,7 @@
 			<thead>
 				<tr>
 					<th colspan="8">
-						<a href="{{ route('veiculo.store') }}" class="btn btn-success" data-toggle="tooltip" title="Novo"><i class="fa fa-plus"></i> Novo</a>
+						<a href="{{ route('veiculo.create') }}" class="btn btn-success" data-toggle="tooltip" title="Novo"><i class="fa fa-plus"></i> Novo</a>
 					</th>
 				</tr>            
 				<tr>
@@ -32,23 +32,23 @@
 			<tbody>
     			@forelse($veiculos as $veiculo)
     				<tr>
-    					<td align="center">{{ $veiculo->id }}</td>
-    					<td>{{ $veiculo->nome }}</td>
-    					<td>{{ $veiculo->placa }}</td>
-    					<td>{{ $veiculo->cliente->nome }}</td>
-    					<td>{{ $veiculo->marca->marca }}</td>
-    					<td align="center">{{ $veiculo->cor->cor }}</td>
-    					<td align="center">
+    					<td align="center" class="align-middle">{{ $veiculo->id }}</td>
+    					<td class="align-middle">{{ $veiculo->nome }}</td>
+    					<td class="align-middle">{{ $veiculo->placa }}</td>
+    					<td class="align-middle">{{ $veiculo->cliente->nome }}</td>
+    					<td class="align-middle">{{ $veiculo->marca->marca }}</td>
+    					<td align="center" class="align-middle">{{ $veiculo->cor->cor }}</td>
+    					<td align="center" class="align-middle">
     						@if($veiculo->situacao == OfSystem\Veiculo::ATIVO)
     							<span class="badge badge-success"><i class="fa fa-thumbs-o-up"></i></span>
     						@else
     							<span class="badge badge-danger"><i class="fa fa-thumbs-o-down"></i></span>
     						@endif    					
     					</td>
-    					<td align="center">
+    					<td align="center" class="align-middle">
                     		<div class="btn-group" role="group">
                             	<a href="{{ route('veiculo.show', ['id'=>$veiculo->id]) }}" class="btn btn-info" data-toggle="tooltip" title="Visualizar"><i class="fa fa-eye"></i></a>
-                              	<a href="{{ route('veiculo.update', ['id'=>$veiculo->id]) }}" class="btn btn-warning" data-toggle="tooltip" title="Editar"><i class="fa fa-edit"></i></a>
+                              	<a href="{{ route('veiculo.edit', ['id'=>$veiculo->id]) }}" class="btn btn-warning" data-toggle="tooltip" title="Editar"><i class="fa fa-edit"></i></a>
                               	<a href="{{ route('veiculo.delete', ['id'=>$veiculo->id]) }}" class="btn btn-danger" data-toggle="tooltip" title="Deletar"><i class="fa fa-trash"></i></a>
                             </div>		
                     	</td>

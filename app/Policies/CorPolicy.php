@@ -10,9 +10,9 @@ class CorPolicy
 {
     use HandlesAuthorization;
     
-    public function index(User $user)
+    public function listar(User $user)
     {
-        $permission = DB::table('user_roles')->where('role_name', 'cor.index')->orWhere('role_name', 'admin.all')->orWhere('role_name', 'admin.all')->first();
+        $permission = DB::table('user_roles')->where('role_name', 'cor.listar')->orWhere('role_name', 'admin')->first();
         if(empty($permission)){
             return false;
         }
@@ -21,9 +21,9 @@ class CorPolicy
         }
     }
     
-    public function show(User $user)
+    public function visualizar(User $user)
     {
-        $permission = DB::table('user_roles')->where('role_name', 'cor.show')->orWhere('role_name', 'admin.all')->first();
+        $permission = DB::table('user_roles')->where('role_name', 'cor.visualizar')->orWhere('role_name', 'admin')->first();
         if(empty($permission)){
             return false;
         }
@@ -32,9 +32,9 @@ class CorPolicy
         }
     }
     
-    public function store(User $user)
+    public function criar(User $user)
     {
-        $permission = DB::table('user_roles')->where('role_name', 'cor.store')->orWhere('role_name', 'admin.all')->first();
+        $permission = DB::table('user_roles')->where('role_name', 'cor.criar')->orWhere('role_name', 'admin')->first();
         if(empty($permission)){
             return false;
         }
@@ -43,9 +43,9 @@ class CorPolicy
         }
     }
     
-    public function update(User $user)
+    public function alterar(User $user)
     {
-        $permission = DB::table('user_roles')->where('role_name', 'cor.update')->orWhere('role_name', 'admin.all')->first();
+        $permission = DB::table('user_roles')->where('role_name', 'cor.alterar')->orWhere('role_name', 'admin')->first();
         if(empty($permission)){
             return false;
         }
@@ -54,9 +54,9 @@ class CorPolicy
         }
     }
     
-    public function delete(User $user)
+    public function excluir(User $user)
     {
-        $permission = DB::table('user_roles')->where('role_name', 'cor.delete')->orWhere('role_name', 'admin.all')->first();
+        $permission = DB::table('user_roles')->where('role_name', 'cor.excluir')->orWhere('role_name', 'admin')->first();
         if(empty($permission)){
             return false;
         }

@@ -37,36 +37,57 @@ Route::prefix('cliente')->group(function (){
 });
 
 Route::prefix('veiculo')->group(function (){
-    Route::get('/', 'VeiculoController@index')->name('veiculo.index')->middleware("role:index,OfSystem\Veiculo");
-    Route::any('/store', 'VeiculoController@store')->name('veiculo.store')->middleware("role:store,OfSystem\Veiculo");
-    Route::any('/report', 'VeiculoController@report')->name('veiculo.report')->middleware("role:report,OfSystem\Veiculo");
-    Route::any('/show/{id}', 'VeiculoController@show')->name('veiculo.show')->middleware("role:show,OfSystem\Veiculo");
-    Route::any('/update/{id}', 'VeiculoController@update')->name('veiculo.update')->middleware("role:update,OfSystem\Veiculo");
-    Route::any('/delete/{id}', 'VeiculoController@delete')->name('veiculo.delete')->middleware("role:delete,OfSystem\Veiculo");
-});
+    Route::get('/', 'VeiculoController@index')->name('veiculo.index')->middleware("role:listar,OfSystem\Veiculo");
+    Route::get('/create', 'VeiculoController@create')->name('veiculo.create')->middleware("role:criar,OfSystem\Veiculo");
+    Route::post('/store', 'VeiculoController@store')->name('veiculo.store')->middleware("role:criar,OfSystem\Veiculo");
+    Route::get('/report', 'VeiculoController@report')->name('veiculo.report')->middleware("role:relatorio,OfSystem\Veiculo");
+    Route::get('/show/{id}', 'VeiculoController@show')->name('veiculo.show')->middleware("role:visualizar,OfSystem\Veiculo");
+    Route::get('/edit/{id}', 'VeiculoController@edit')->name('veiculo.edit')->middleware("role:alterar,OfSystem\Veiculo");
+    Route::put('/update/{id}', 'VeiculoController@update')->name('veiculo.update')->middleware("role:alterar,OfSystem\Veiculo");
+    Route::get('/delete/{id}', 'VeiculoController@delete')->name('veiculo.delete')->middleware("role:excluir,OfSystem\Veiculo");
+});        
 
 Route::prefix('marca')->group(function (){
-    Route::get('/', 'MarcaController@index')->name('marca.index')->middleware("role:index,OfSystem\Marca");
-    Route::any('/store', 'MarcaController@store')->name('marca.store')->middleware("role:store,OfSystem\Marca");
-    Route::any('/report', 'MarcaController@report')->name('marca.report')->middleware("role:report,OfSystem\Marca");
-    Route::any('/show/{id}', 'MarcaController@show')->name('marca.show')->middleware("role:show,OfSystem\Marca");
-    Route::any('/update/{id}', 'MarcaController@update')->name('marca.update')->middleware("role:update,OfSystem\Marca");
-    Route::any('/delete/{id}', 'MarcaController@delete')->name('marca.delete')->middleware("role:delete,OfSystem\Marca");
+    Route::get('/', 'MarcaController@index')->name('marca.index')->middleware("role:listar,OfSystem\Marca");
+    Route::get('/create', 'MarcaController@create')->name('marca.create')->middleware("role:criar,OfSystem\Marca");
+    Route::post('/store', 'MarcaController@store')->name('marca.store')->middleware("role:criar,OfSystem\Marca");
+    Route::get('/report', 'MarcaController@report')->name('marca.report')->middleware("role:relatorio,OfSystem\Marca");
+    Route::get('/show/{id}', 'MarcaController@show')->name('marca.show')->middleware("role:visualizar,OfSystem\Marca");
+    Route::get('/edit/{id}', 'MarcaController@edit')->name('marca.edit')->middleware("role:alterar,OfSystem\Marca");
+    Route::put('/update/{id}', 'MarcaController@update')->name('marca.update')->middleware("role:alterar,OfSystem\Marca");
+    Route::get('/delete/{id}', 'MarcaController@delete')->name('marca.delete')->middleware("role:excluir,OfSystem\Marca");
 });
 
 Route::prefix('cor')->group(function (){
-    Route::get('/', 'CorController@index')->name('cor.index')->middleware("role:index,OfSystem\Cor");
-    Route::any('/store', 'CorController@store')->name('cor.store')->middleware("role:store,OfSystem\Cor");
-    Route::any('/report', 'CorController@report')->name('cor.report')->middleware("role:report,OfSystem\Cor");
-    Route::any('/show/{id}', 'CorController@show')->name('cor.show')->middleware("role:show,OfSystem\Cor");
-    Route::any('/update/{id}', 'CorController@update')->name('cor.update')->middleware("role:update,OfSystem\Cor");
-    Route::any('/delete/{id}', 'CorController@delete')->name('cor.delete')->middleware("role:delete,OfSystem\Cor");
+    Route::get('/', 'CorController@index')->name('cor.index')->middleware("role:listar,OfSystem\Cor");
+    Route::get('/create', 'CorController@create')->name('cor.create')->middleware("role:criar,OfSystem\Cor");
+    Route::post('/store', 'CorController@store')->name('cor.store')->middleware("role:criar,OfSystem\Cor");
+    Route::get('/report', 'CorController@report')->name('cor.report')->middleware("role:relatorio,OfSystem\Cor");
+    Route::get('/show/{id}', 'CorController@show')->name('cor.show')->middleware("role:visualizar,OfSystem\Cor");
+    Route::get('/edit/{id}', 'CorController@edit')->name('cor.edit')->middleware("role:alterar,OfSystem\Cor");
+    Route::put('/update/{id}', 'CorController@update')->name('cor.update')->middleware("role:alterar,OfSystem\Cor");
+    Route::get('/delete/{id}', 'CorController@delete')->name('cor.delete')->middleware("role:excluir,OfSystem\Cor");
 });
 
 Route::prefix('funcionario')->group(function (){
-    Route::any('/', 'FuncionarioController@index')->name('funcionario.index');
-    Route::any('/funcionario', 'FuncionarioController@store')->name('funcionario.store');
-    Route::any('/update/{id}', 'FuncionarioController@update')->name('funcionario.update');
-    Route::any('/delete/{id}', 'FuncionarioController@delete')->name('funcionario.delete');
+    Route::get('/', 'FuncionarioController@index')->name('funcionario.index')->middleware("role:listar,OfSystem\Funcionario");
+    Route::get('/create', 'FuncionarioController@create')->name('funcionario.create')->middleware("role:criar,OfSystem\Funcionario");
+    Route::post('/store', 'FuncionarioController@store')->name('funcionario.store')->middleware("role:criar,OfSystem\Funcionario");
+    Route::get('/report', 'FuncionarioController@report')->name('funcionario.report')->middleware("role:relatorio,OfSystem\Funcionario");
+    Route::get('/show/{id}', 'FuncionarioController@show')->name('funcionario.show')->middleware("role:visualizar,OfSystem\Funcionario");
+    Route::get('/edit/{id}', 'FuncionarioController@edit')->name('funcionario.edit')->middleware("role:alterar,OfSystem\Funcionario");
+    Route::put('/update/{id}', 'FuncionarioController@update')->name('funcionario.update')->middleware("role:alterar,OfSystem\Funcionario");
+    Route::get('/delete/{id}', 'FuncionarioController@delete')->name('funcionario.delete')->middleware("role:excluir,OfSystem\Funcionario");
+});
+
+Route::prefix('cargo')->group(function (){
+    Route::get('/', 'CargoController@index')->name('cargo.index')->middleware("role:listar,OfSystem\Cargo");
+    Route::get('/create', 'CargoController@create')->name('cargo.create')->middleware("role:criar,OfSystem\Cargo");
+    Route::post('/store', 'CargoController@store')->name('cargo.store')->middleware("role:criar,OfSystem\Cargo");
+    Route::get('/report', 'CargoController@report')->name('cargo.report')->middleware("role:relatorio,OfSystem\Cargo");
+    Route::get('/show/{id}', 'CargoController@show')->name('cargo.show')->middleware("role:visualizar,OfSystem\Cargo");
+    Route::get('/edit/{id}', 'CargoController@edit')->name('cargo.edit')->middleware("role:alterar,OfSystem\Cargo");
+    Route::put('/update/{id}', 'CargoController@update')->name('cargo.update')->middleware("role:alterar,OfSystem\Cargo");
+    Route::get('/delete/{id}', 'CargoController@delete')->name('cargo.delete')->middleware("role:excluir,OfSystem\Cargo");
 });
 

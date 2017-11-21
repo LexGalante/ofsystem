@@ -22,61 +22,66 @@ class VeiculoController extends Controller
         return view('veiculo.show', compact('veiculo'));
     }
     
-    public function store(VeiculoRequest $request)
+    public function create()
     {
-        if($request->method() == Request::METHOD_GET){
-            $cores = Cor::all();
-            $marcas = Marca::all();
-            return view('veiculo.create', compact('cores', 'marcas'));
-        }
-        else{
-            try{
-                $veiculo = Veiculo::create($request->all());
-                if($veiculo){
-                    \Session::flash('alert', ['class' => 'success', 'message' => 'Veiculo salva com sucesso!']);
-                }
-                else{
-                    \Session::flash('alert', ['class' => 'danger', 'message' => 'Não foi possivel salvar veiculo']);
-                }
-            }
-            catch(\Exception $e){
-                \Session::flash('alert', ['class' => 'danger', 'message' => "Erro desconhecido ({$e->getMessage()})"]);
-            }
-            
-            return redirect()->route('veiculo.index');
-        }
+        $cores = Cor::all();
+        $marcas = Marca::all();
+        return view('veiculo.create', compact('cores', 'marcas'));
     }
     
-    public function update(VeiculoRequest$request, $id)
+    
+    public function store(VeiculoRequest $request)
+    {
+        try{
+            $veiculo = Veiculo::create($request->all());
+            $veiculo->save();
+            if($veiculo){
+                \Session::flash('alert', ['class' => 'success', 'message' => 'Veiculo salvo com sucesso!']);
+            }
+            else{
+                \Session::flash('alert', ['class' => 'danger', 'message' => 'Não foi possivel salvar veiculo']);
+            }
+        }
+        catch(\Exception $e){
+            \Session::flash('alert', ['class' => 'danger', 'message' => "Erro desconhecido ({$e->getMessage()})"]);
+        }
+        
+        return redirect()->route('veiculo.index');
+    }
+    
+    public function edit($id)
     {
         $veiculo = Veiculo::find($id);
-        if($request->method() == Request::METHOD_GET){
-            return view('veiculo.update', compact('veiculo'));
-        }
-        else{
-            try{
-               $veiculo->fill($request->all());
-               $veiculo->save();
-                if($veiculo){
-                    \Session::flash('alert', ['class' => 'success', 'message' => 'Veiculo alterado com sucesso!']);
-                }
-                else{
-                    \Session::flash('alert', ['class' => 'danger', 'message' => 'Não foi possivel alterar o veiculo']);
-                }
+        $cores = Cor::all();
+        $marcas = Marca::all();
+        return view('veiculo.update', compact('veiculo', 'cores', 'marcas'));
+    }
+    
+    public function update(VeiculoRequest $request, $id)
+    {
+        try{
+            $veiculo = Veiculo::find($id);
+            $veiculo->fill($request->all());
+            $veiculo->save();
+            if($veiculo){
+                \Session::flash('alert', ['class' => 'success', 'message' => 'Veiculo alterado com sucesso!']);
             }
-            catch(\Exception $e){
-                \Session::flash('alert', ['class' => 'danger', 'message' => "Erro desconhecido ({$e->getMessage()})"]);
+            else{
+                \Session::flash('alert', ['class' => 'danger', 'message' => 'Não foi possivel alterar o veiculo']);
             }
-            
-            return redirect()->route('veiculo.index');
         }
+        catch(\Exception $e){
+            \Session::flash('alert', ['class' => 'danger', 'message' => "Erro desconhecido ({$e->getMessage()})"]);
+        }
+        
+        return redirect()->route('veiculo.index');
     }
     
     public function delete($id)
     {
         try{
             Veiculo::destroy($id);
-            \Session::flash('alert', ['class' => 'success', 'message' => 'Veiculo deletada com sucesso!']);
+            \Session::flash('alert', ['class' => 'success', 'message' => 'Veiculo deletado com sucesso!']);
         }
         catch(\Exception $e){
             \Session::flash('alert', ['class' => 'danger', 'message' => "Erro desconhecido ({$e->getMessage()})"]);

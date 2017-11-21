@@ -34,7 +34,7 @@
 				<a href="{{ route('marca.store') }}" class="btn btn-success btn-block" data-toggle="tooltip" title="Novo"><i class="fa fa-plus"></i> Novo</a>
 			</div>
 			<div class="col-md-4">
-				<a href="{{ route('marca.update', ['id'=>$marca->id]) }}" class="btn btn-warning btn-block" data-toggle="tooltip" title="Editar"><i class="fa fa-edit"></i> Editar</a>
+				<a href="{{ route('marca.edit', ['id'=>$marca->id]) }}" class="btn btn-warning btn-block" data-toggle="tooltip" title="Editar"><i class="fa fa-edit"></i> Editar</a>
 			</div>
 			<div class="col-md-4">
 				<a href="{{ route('marca.delete', ['id'=>$marca->id]) }}" class="btn btn-danger btn-block" data-toggle="tooltip" title="Deletar"><i class="fa fa-trash"></i> Deletar</a>

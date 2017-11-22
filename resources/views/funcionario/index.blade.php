@@ -43,7 +43,7 @@
     					<td align="center" class="align-middle">{{ OfSystem\Util\Cast::dateMaskFrontend($funcionario->demissao) }}</td>
     					<td align="left" class="align-middle">{{ OfSystem\Util\Cast::moneyMaskFrontEnd($funcionario->salario) }}</td>
     					<td align="center" class="align-middle">
-                    		@if($funcionario->situacao == OfSystem\Funcionario::ATIVO)
+                    		@if($funcionario->situacao == OfSystem\Enum\Situacao::ATIVO)
                     			<span class="badge badge-success"><i class="fa fa-thumbs-o-up"></i></span>
                     		@else
                     			<span class="badge badge-danger"><i class="fa fa-thumbs-o-down"></i></span>	

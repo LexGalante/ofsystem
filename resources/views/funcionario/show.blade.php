@@ -27,7 +27,7 @@
 		<p><strong class="text-info">Data de Demissão: </strong>{{ $funcionario->admissao }}<hr/></p>
 		<p>
 			<strong class="text-info">Situação: </strong>
-			@if($funcionario->situacao == OfSystem\Funcionario::ATIVO)
+			@if($funcionario->situacao == OfSystem\Enum\Situacao::ATIVO)
     			<span class="badge badge-success"><i class="fa fa-thumbs-o-up"></i></span>
     		@else
     			<span class="badge badge-danger"><i class="fa fa-thumbs-o-down"></i></span>	

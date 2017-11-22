@@ -29,20 +29,22 @@ class Cast
      */
     public static function dateMaskBackend($string)
     {
-        if(\DateTime::createFromFormat('d/m/Y', $string)){
-            return \DateTime::createFromFormat('d/m/Y', $string)->format('Y-m-d');
-        }
-        
-        if(\DateTime::createFromFormat('d/m/Y H:i:s', $string)){
-            return \DateTime::createFromFormat('d/m/Y H:i:s', $string)->format('Y-m-d');
-        }
-        
-        if(\DateTime::createFromFormat('Y-m-d H:i:s', $string)){
-            return \DateTime::createFromFormat('Y-m-d H:i:s', $string)->format('Y-m-d');
-        }
-        
-        if(\DateTime::createFromFormat('U', $string)){
-            return \DateTime::createFromFormat('U', $string)->format('Y-m-d');
+        if($string){
+            if(\DateTime::createFromFormat('d/m/Y', $string)){
+                return \DateTime::createFromFormat('d/m/Y', $string)->format('Y-m-d');
+            }
+            
+            if(\DateTime::createFromFormat('d/m/Y H:i:s', $string)){
+                return \DateTime::createFromFormat('d/m/Y H:i:s', $string)->format('Y-m-d');
+            }
+            
+            if(\DateTime::createFromFormat('Y-m-d H:i:s', $string)){
+                return \DateTime::createFromFormat('Y-m-d H:i:s', $string)->format('Y-m-d');
+            }
+            
+            if(\DateTime::createFromFormat('U', $string)){
+                return \DateTime::createFromFormat('U', $string)->format('Y-m-d');
+            }
         }
     }
     /**
@@ -52,24 +54,26 @@ class Cast
      */
     public static function dateMaskFrontend($string)
     {
-        if(\DateTime::createFromFormat('d/m/Y', $string)){
-            return \DateTime::createFromFormat('d/m/Y', $string)->format('d/m/Y');
-        }
-        
-        if(\DateTime::createFromFormat('d/m/Y H:i:s', $string)){
-            return \DateTime::createFromFormat('d/m/Y H:i:s', $string)->format('d/m/Y');
-        }
-        
-        if(\DateTime::createFromFormat('Y-m-d', $string)){
-            return \DateTime::createFromFormat('Y-m-d', $string)->format('d/m/Y');
-        }
-        
-        if(\DateTime::createFromFormat('Y-m-d H:i:s', $string)){
-            return \DateTime::createFromFormat('Y-m-d H:i:s', $string)->format('d/m/Y');
-        }
-        
-        if(\DateTime::createFromFormat('U', $string)){
-            return \DateTime::createFromFormat('U', $string)->format('d/m/Y');
+        if($string){
+            if(\DateTime::createFromFormat('d/m/Y', $string)){
+                return \DateTime::createFromFormat('d/m/Y', $string)->format('d/m/Y');
+            }
+            
+            if(\DateTime::createFromFormat('d/m/Y H:i:s', $string)){
+                return \DateTime::createFromFormat('d/m/Y H:i:s', $string)->format('d/m/Y');
+            }
+            
+            if(\DateTime::createFromFormat('Y-m-d', $string)){
+                return \DateTime::createFromFormat('Y-m-d', $string)->format('d/m/Y');
+            }
+            
+            if(\DateTime::createFromFormat('Y-m-d H:i:s', $string)){
+                return \DateTime::createFromFormat('Y-m-d H:i:s', $string)->format('d/m/Y');
+            }
+            
+            if(\DateTime::createFromFormat('U', $string)){
+                return \DateTime::createFromFormat('U', $string)->format('d/m/Y');
+            }
         }
     }
     /**
@@ -79,24 +83,26 @@ class Cast
      */
     public static function dateTimeMaskBackend($string)
     {
-        if(\DateTime::createFromFormat('d/m/Y', $string)){
-            return \DateTime::createFromFormat('d/m/Y', $string)->format('Y-m-d H:i:s');
-        }
-        
-        if(\DateTime::createFromFormat('d/m/Y H:i:s', $string)){
-            return \DateTime::createFromFormat('d/m/Y H:i:s', $string)->format('Y-m-d H:i:s');
-        }
-        
-        if(\DateTime::createFromFormat('Y-m-d', $string)){
-            return \DateTime::createFromFormat('Y-m-d', $string)->format('Y-m-d H:i:s');
-        }
-        
-        if(\DateTime::createFromFormat('Y-m-d H:i:s', $string)){
-            return \DateTime::createFromFormat('Y-m-d H:i:s', $string)->format('Y-m-d H:i:s');
-        }
-        
-        if(\DateTime::createFromFormat('U', $string)){
-            return \DateTime::createFromFormat('U', $string)->format('Y-m-d H:i:s');
+        if($string){
+            if(\DateTime::createFromFormat('d/m/Y', $string)){
+                return \DateTime::createFromFormat('d/m/Y', $string)->format('Y-m-d H:i:s');
+            }
+            
+            if(\DateTime::createFromFormat('d/m/Y H:i:s', $string)){
+                return \DateTime::createFromFormat('d/m/Y H:i:s', $string)->format('Y-m-d H:i:s');
+            }
+            
+            if(\DateTime::createFromFormat('Y-m-d', $string)){
+                return \DateTime::createFromFormat('Y-m-d', $string)->format('Y-m-d H:i:s');
+            }
+            
+            if(\DateTime::createFromFormat('Y-m-d H:i:s', $string)){
+                return \DateTime::createFromFormat('Y-m-d H:i:s', $string)->format('Y-m-d H:i:s');
+            }
+            
+            if(\DateTime::createFromFormat('U', $string)){
+                return \DateTime::createFromFormat('U', $string)->format('Y-m-d H:i:s');
+            }
         }
     }
     /**
@@ -106,21 +112,22 @@ class Cast
      */
     public static function dateTimeMaskFrontend($string)
     {
-        if(\DateTime::createFromFormat('d/m/Y', $string)){
-            return \DateTime::createFromFormat('d/m/Y', $string)->format('d/m/Y H:i:s');
-        }
-        
-        if(\DateTime::createFromFormat('d/m/Y H:i:s', $string)){
-            return \DateTime::createFromFormat('d/m/Y H:i:s', $string)->format('d/m/Y H:i:s');
-        }
-        
-        if(\DateTime::createFromFormat('Y-m-d H:i:s', $string)){
-            return \DateTime::createFromFormat('Y-m-d H:i:s', $string)->format('d/m/Y H:i:s');
-        }
-        
-        if(\DateTime::createFromFormat('U', $string)){
-            return \DateTime::createFromFormat('U', $string)->format('d/m/Y H:i:s');
+        if($string){
+            if(\DateTime::createFromFormat('d/m/Y', $string)){
+                return \DateTime::createFromFormat('d/m/Y', $string)->format('d/m/Y H:i:s');
+            }
+            
+            if(\DateTime::createFromFormat('d/m/Y H:i:s', $string)){
+                return \DateTime::createFromFormat('d/m/Y H:i:s', $string)->format('d/m/Y H:i:s');
+            }
+            
+            if(\DateTime::createFromFormat('Y-m-d H:i:s', $string)){
+                return \DateTime::createFromFormat('Y-m-d H:i:s', $string)->format('d/m/Y H:i:s');
+            }
+            
+            if(\DateTime::createFromFormat('U', $string)){
+                return \DateTime::createFromFormat('U', $string)->format('d/m/Y H:i:s');
+            }
         }
     }
-    
 }

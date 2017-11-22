@@ -8,15 +8,12 @@ use OfSystem\Util\Util;
 
 class Funcionario extends Model
 {
-    //CONSTANTES
-    CONST ATIVO = 'A';
-    CONST INATIVO = 'I';
     //Atributos para criação em massa
     public $fillable = ['user_id', 'cargo_id', 'tipo', 'nome', 'sobrenome', 'nascimento', 'genero', 'cprf', 'logradouro', 'numero', 'bairro', 'cidade', 'cep', 'uf', 'salario', 'admissao', 'demissao', 'filhos','situacao'];
     //Relacionamentos
     public function contatos()
     {
-        return $this->belongsToMany(FuncionarioContato::class);
+        return $this->hasMany(FuncionarioContato::class);
     }
     
     public function cargo()
